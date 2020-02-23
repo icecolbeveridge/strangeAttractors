@@ -30,18 +30,19 @@ def generateAttractor( string = None, np = 10000000, init = (0.,0.) ):
             return None
     return out
 
-def plot(points):
+def plot(points, ms = 0.008):
     x,y = [p[0] for p in points], [p[1] for p in points]
-    plt.plot(x,y,'b.', markersize = 1)
+    plt.plot(x,y,'b.', markersize = ms)
     plt.show()
 
-def go():
+def go(s = None, ms = 0.008):
     ok = False
     while not ok:
-        out = generateAttractor()
+        out = generateAttractor(s)
         if out is not None:
             ok = True
     
-    plot(out)
+    plot(out, ms= ms)
 
 go()
+# go("VGDJVHLHQKDP")
